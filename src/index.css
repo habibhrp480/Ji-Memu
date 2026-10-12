@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'SutonnyMJ';
+  src: local('SutonnyMJ'), local('SutonnyMJ Bold'), local('SutonnyMJ Unicode'), local('SutonnyBanglaOMJ');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SolaimanLipi';
+  src: local('SolaimanLipi'), local('Kalpurush');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kalpurush';
+  src: local('Kalpurush'), local('SolaimanLipi');
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    font-family: 'Hind Siliguri', 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Print Specific Rules */
+@media print {
+  @page {
+    size: auto;
+    margin: 0;
+  }
+
+  html, body, #root {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    min-height: 100% !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide headers, footers, forms, toolbars, modals, and toasts */
+  header,
+  footer,
+  nav,
+  .print\:hidden,
+  .print-hide {
+    display: none !important;
+  }
+
+  /* Ensure all wrappers containing the voucher are unhidden and not constrained by overflow */
+  main,
+  .print-area-wrapper,
+  .print-preview-container,
+  .lg\:col-span-7 {
+    display: block !important;
+    visibility: visible !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    position: static !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  /* Reset zoom transform in print */
+  .print-scale-reset {
+    transform: none !important;
+  }
+
+  /* Force Bengali typography consistency during print */
+  #printable-voucher {
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+  }
+
+  /* Target standard single A4 voucher element */
+  #printable-voucher:not(.voucher-5x8):not(.voucher-dual-portrait):not(.voucher-dual-landscape) {
+    margin: 0 auto !important;
+    width: 210mm !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
+    box-sizing: border-box !important;
+    padding: 10mm !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
+    transform: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Target 5" x 8" memo pad voucher */
+  #printable-voucher.voucher-5x8 {
+    margin: 0 auto !important;
+    width: 5in !important;
+    min-height: 8in !important;
+    max-height: 8in !important;
+    box-sizing: border-box !important;
+    padding: 4mm !important;
+    box-shadow: none !important;
+    border: 1px solid #0f766e !important;
+    background: #ffffff !important;
+    transform: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Target A4 Dual Voucher Portrait (উপরে-নিচে ২ কপি) */
+  #printable-voucher.voucher-dual-portrait {
+    margin: 0 auto !important;
+    width: 210mm !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
+    box-sizing: border-box !important;
+    padding: 3mm !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
+    transform: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Target A4 Dual Voucher Landscape (পাশাপাশি ২ কপি) */
+  #printable-voucher.voucher-dual-landscape {
+    margin: 0 auto !important;
+    width: 297mm !important;
+    min-height: 210mm !important;
+    max-height: 210mm !important;
+    box-sizing: border-box !important;
+    padding: 3mm !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
+    transform: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}
